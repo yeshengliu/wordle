@@ -9,10 +9,21 @@ export const AppContext = createContext();
 
 function App() {
   const [board, setBoard] = useState(boardNormalDefault);
+  const [inputValue, setInputValue] = useState("");
+  const [currAttempt, setCurrAttempt] = useState(0);
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ board, setBoard }}>
+      <AppContext.Provider
+        value={{
+          board,
+          setBoard,
+          inputValue,
+          setInputValue,
+          currAttempt,
+          setCurrAttempt,
+        }}
+      >
         <Message />
         <BoardNormal />
         <WordInput />
