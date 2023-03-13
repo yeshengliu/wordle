@@ -11,6 +11,9 @@ function App() {
   const [board, setBoard] = useState(boardNormalDefault);
   const [inputValue, setInputValue] = useState("");
   const [currAttempt, setCurrAttempt] = useState(0);
+  const [message, setMessage] = useState(
+    `Please enter a 6-letter word. ${6 - currAttempt} attempts remaining.`
+  );
 
   return (
     <div className="App">
@@ -22,6 +25,8 @@ function App() {
           setInputValue,
           currAttempt,
           setCurrAttempt,
+          message,
+          setMessage,
         }}
       >
         <Message />

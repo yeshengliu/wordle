@@ -16,13 +16,17 @@ function WordInput() {
   }
 
   function handleClick() {
-    const newBoard = [...board];
-    for (let i = 0; i < 6; i++) {
-      newBoard[currAttempt][i] = inputValue[i];
+    updateBoard(inputValue);
+
+    function updateBoard() {
+      const newBoard = [...board];
+      for (let i = 0; i < 6; i++) {
+        newBoard[currAttempt][i] = inputValue[i];
+      }
+      setBoard(newBoard);
+      setCurrAttempt(currAttempt + 1);
+      setInputValue("");
     }
-    setBoard(newBoard);
-    setCurrAttempt(currAttempt + 1);
-    setInputValue("");
   }
   return (
     <div className="worldInput">
