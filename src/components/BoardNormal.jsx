@@ -1,6 +1,15 @@
 import React from "react";
 import Letter from "./Letter";
 
+export const boardNormalDefault = [
+  ["", "", "", "", "", ""],
+  ["", "", "", "", "", ""],
+  ["", "", "", "", "", ""],
+  ["", "", "", "", "", ""],
+  ["", "", "", "", "", ""],
+  ["", "", "", "", "", ""],
+];
+
 function BoardNormal() {
   return (
     <div className="board">
