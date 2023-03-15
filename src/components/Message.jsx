@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../App";
 
-function Message() {
-  const { message } = React.useContext(AppContext);
-  return message ? <div className="message">{message}</div> : null;
+function Message(props) {
+
+  const { message } = useContext(AppContext);
+
+  return <div className="message">{message}</div>;
 }
 
 export default Message;

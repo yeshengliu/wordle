@@ -1,34 +1,25 @@
 import "./App.css";
-import Message from "./components/Message";
-import WordInput from "./components/WordInput";
-import BoardNormal from "./components/BoardNormal";
 import { createContext, useState } from "react";
-import { boardNormalDefault } from "./components/BoardNormal";
+import Main from "./components/Main";
 
 export const AppContext = createContext();
 
 function App() {
-  const [board, setBoard] = useState(boardNormalDefault);
-  const [currAttempt, setCurrAttempt] = useState(0);
-  const [message, setMessage] = useState(
-    `Please enter a 6-letter word. ${6 - currAttempt} attempts remaining.`
-  );
+  /* Global state */
+  const [message, setMessage] = useState(``);
+  const [targetWord, setTargetWord] = useState("AAAAAA");
 
   return (
     <div className="App">
       <AppContext.Provider
         value={{
-          board,
-          setBoard,
-          currAttempt,
-          setCurrAttempt,
           message,
           setMessage,
+          targetWord,
+          setTargetWord,
         }}
       >
-        <Message />
-        <BoardNormal />
-        <WordInput />
+        <Main />
       </AppContext.Provider>
     </div>
   );

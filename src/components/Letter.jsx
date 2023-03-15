@@ -1,10 +1,8 @@
 import React from "react";
-import { useContext } from "react";
-import { AppContext } from "../App";
 
 function Letter(props) {
-  const { board } = useContext(AppContext);
-  const currLetter = board[props.row][props.col];
+  const { board, row, col } = props;
+  const currLetter = board[row][col];
   return <div className="letter">{currLetter}</div>;
 }
 
