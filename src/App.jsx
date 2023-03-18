@@ -1,6 +1,8 @@
 import "./App.css";
 import { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import NavBar from "./components/NavBar";
 import NormalPage from "./pages/NormalPage";
 import HardPage from "./pages/HardPage";
 
@@ -25,6 +27,7 @@ function App() {
             setPlayerWon,
           }}
         >
+          <NavBar />
           <Routes>
             <Route exact path="/game/normal" element={<NormalPage />} />
             <Route exact path="/game/hard" element={<HardPage />} />
