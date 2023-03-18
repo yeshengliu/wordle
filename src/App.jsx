@@ -8,6 +8,7 @@ function App() {
   /* Global state */
   const [message, setMessage] = useState(``);
   const [targetWord, setTargetWord] = useState(``);
+  const [playerWon, setPlayerWon] = useState(false);
 
   return (
     <div className="App">
@@ -17,6 +18,8 @@ function App() {
           setMessage,
           targetWord,
           setTargetWord,
+          playerWon,
+          setPlayerWon,
         }}
       >
         <Main />

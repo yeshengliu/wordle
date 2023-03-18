@@ -6,7 +6,7 @@ import { sixLetterWords, sevenLetterWords } from "../resources/WordSet";
 import { AppContext } from "../App";
 
 function Main() {
-  const { setMessage, setTargetWord } = useContext(AppContext);
+  const { targetWord, setMessage, setTargetWord, setPlayerWon } = useContext(AppContext);
 
   const size = 6;
   const maxAttempts = 6;
@@ -29,6 +29,7 @@ function Main() {
       `Please enter a ${size}-letter word. ${maxAttempts} attempts remaining.`
     );
     setBoard(emptyBoard);
+    setPlayerWon(false);
     // select a random word from the word set
     if (size === 6) {
       setTargetWord(sixLetterWords[Math.floor(Math.random() * sixLetterWords.length)]);
@@ -45,6 +46,7 @@ function Main() {
     <div>
       <nav>
         <h1>Wordle</h1>
+        <h2>{targetWord}</h2>
       </nav>
       <Message />
       <Board board={board} size={size} maxAttempts={maxAttempts} />

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../App";
 
 function WordInput(props) {
-  const { setMessage, targetWord } = useContext(AppContext);
+  const { setMessage, targetWord, playerWon, setPlayerWon } = useContext(AppContext);
 
   const { board, setBoard, size, currAttempt, setCurrAttempt, maxAttempts, handleReset } = props;
 
@@ -32,8 +32,8 @@ function WordInput(props) {
 
   function handleClick() {
     setInputValue("");
-    // not respond if user exceeds max attempts
-    if (currAttempt > maxAttempts) {
+    // not respond if user exceeds max attempts or player already won
+    if (currAttempt > maxAttempts || playerWon) {
       return;
     }
 
@@ -58,6 +58,7 @@ function WordInput(props) {
 
     if (inputValue === targetWord) {
       setMessage(`Congratulations! Would you like to try again?`);
+      setPlayerWon(true);
     } else if (currAttempt === maxAttempts) {
       setMessage(`Game Over! The word was "${targetWord}"`);
     } else {
