@@ -10,11 +10,13 @@ function Board(props) {
   for (let i = 0; i < maxAttempts; i++) {
     const row = [];
     for (let j = 0; j < size; j++) {
-      row.push(
-        <Letter key={i * size + j} row={i} col={j} board={board} />
-      );
+      row.push(<Letter key={i * size + j} row={i} col={j} board={board} />);
     }
-    rows.push(<div className="board-row" key={i}>{row}</div>);
+    rows.push(
+      <div className="board-row" key={i}>
+        {row}
+      </div>
+    );
   }
   return <div className="board">{rows}</div>;
 }

@@ -4,7 +4,8 @@ import { AppContext } from "../App";
 function WordInput(props) {
   const { setMessage, targetWord } = useContext(AppContext);
 
-  const { board, setBoard, size, currAttempt, setCurrAttempt, maxAttempts } = props;
+  const { board, setBoard, size, currAttempt, setCurrAttempt, maxAttempts } =
+    props;
 
   const [inputValue, setInputValue] = useState("");
 
@@ -17,12 +18,15 @@ function WordInput(props) {
       handleClick();
       return;
     }
-    
+
     // allow only letter inputs
-    const charCode = (e.which) ? e.which : e.keyCode;
-    if ((charCode < 65 || charCode > 90) && 
-      (charCode < 97 || charCode > 122) && 
-      (charCode != 32) && (e.key != "Backspace")) {
+    const charCode = e.which ? e.which : e.keyCode;
+    if (
+      (charCode < 65 || charCode > 90) &&
+      (charCode < 97 || charCode > 122) &&
+      charCode != 32 &&
+      e.key != "Backspace"
+    ) {
       e.preventDefault();
     }
   }
@@ -42,21 +46,55 @@ function WordInput(props) {
 
     // if input is valid, add it to the board, row based on current attempt, then update currAttempt
     const newBoard = [...board];
+    const letterState = getLetterState(inputValue, targetWord);
+
     for (let i = 0; i < size; i++) {
-      newBoard[currAttempt - 1][i] = inputValue[i];
+      const currLetter = {
+        letter: inputValue[i],
+        state: letterState[i],
+      };
+      newBoard[currAttempt - 1][i] = currLetter;
     }
     setBoard(newBoard);
-    
-    
+
     if (inputValue === targetWord) {
       setMessage(`Congratulations! You won!`);
     } else if (currAttempt === maxAttempts) {
       setMessage(`Game Over! The word was "${targetWord}"`);
     } else {
-      setMessage(`Please enter a ${size}-letter word. ${maxAttempts - currAttempt} attempts remaining.`);
+      setMessage(
+        `Please enter a ${size}-letter word. ${
+          maxAttempts - currAttempt
+        } attempts remaining.`
+      );
     }
+
     setCurrAttempt(currAttempt + 1);
   }
+
+  function getLetterState(inputValue, targetWord) {
+    let targetCopy = targetWord.slice();
+    // initialize all colors to incorrect
+    const colors = Array(size).fill("incorrect");
+    // loop through inputValue and update to correct if fully correct
+    for (let i = 0; i < size; i++) {
+      if (inputValue[i] === targetCopy[i]) {
+        colors[i] = "correct";
+        // remove letter from targetCopy, so it's not scored again
+        targetCopy = targetCopy.replace(inputValue[i], " ");
+      }
+    }
+    // loop through inputValue and mark yellow if almost correct
+    for (let i = 0; i < size; i++) {
+      if (colors[i] !== "correct" && targetCopy.includes(inputValue[i])) {
+        colors[i] = "almost-correct";
+        // remove letter from targetCopy, so it's not scored again
+        targetCopy = targetCopy.replace(inputValue[i], " ");
+      }
+    }
+    return colors;
+  }
+
   return (
     <div className="worldInput">
       <input
@@ -65,7 +103,7 @@ function WordInput(props) {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleClick}>Guess</button>
+      <button onClick={handleClick}>inputValue</button>
     </div>
   );
 }

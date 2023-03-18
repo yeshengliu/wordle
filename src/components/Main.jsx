@@ -5,7 +5,6 @@ import WordInput from "./WordInput";
 import { AppContext } from "../App";
 
 function Main() {
-
   const { setMessage } = useContext(AppContext);
 
   const size = 6;
@@ -19,12 +18,15 @@ function Main() {
     }
     emptyBoard.push(row);
   }
+
   const [board, setBoard] = useState(emptyBoard);
   const [currAttempt, setCurrAttempt] = useState(1);
 
-  const reset = function() {
+  const reset = function () {
     setCurrAttempt(1);
-    setMessage(`Please enter a ${size}-letter word. ${maxAttempts} attempts remaining.`);
+    setMessage(
+      `Please enter a ${size}-letter word. ${maxAttempts} attempts remaining.`
+    );
     setBoard(emptyBoard);
   };
 
@@ -35,11 +37,7 @@ function Main() {
   return (
     <div>
       <Message />
-      <Board 
-        board={board}
-        size={size}
-        maxAttempts={maxAttempts}
-      />
+      <Board board={board} size={size} maxAttempts={maxAttempts} />
       <WordInput
         board={board}
         setBoard={setBoard}

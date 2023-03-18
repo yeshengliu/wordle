@@ -69,6 +69,18 @@
   color: black;
 }
 
+#correct {
+  background-color: green;
+}
+
+#incorrect {
+  background-color: gray;
+}
+
+#almost-correct {
+  background-color: yellow;
+}
+
 .message {
   width: 100%;
   height: 100px;
