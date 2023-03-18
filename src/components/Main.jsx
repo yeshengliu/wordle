@@ -55,6 +55,7 @@ function Main() {
         currAttempt={currAttempt}
         setCurrAttempt={setCurrAttempt}
         maxAttempts={maxAttempts}
+        handleReset={reset}
       />
     </div>
   );

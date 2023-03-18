@@ -4,8 +4,7 @@ import { AppContext } from "../App";
 function WordInput(props) {
   const { setMessage, targetWord } = useContext(AppContext);
 
-  const { board, setBoard, size, currAttempt, setCurrAttempt, maxAttempts } =
-    props;
+  const { board, setBoard, size, currAttempt, setCurrAttempt, maxAttempts, handleReset } = props;
 
   const [inputValue, setInputValue] = useState("");
 
@@ -105,7 +104,7 @@ function WordInput(props) {
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleClick}>Guess</button>
-      <button>Reset the game</button>
+      <button onClick={handleReset}>Reset the game</button>
     </div>
   );
 }
