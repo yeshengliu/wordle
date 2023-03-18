@@ -72,6 +72,10 @@
   margin: 0.5rem; 
 }
 
+.wordInput * {
+  margin: 0 0.3rem;
+}
+
 @media screen and (max-width: 600px) {
   .board {
     margin: 2rem;
