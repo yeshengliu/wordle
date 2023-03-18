@@ -46,15 +46,15 @@ nav h1 {
   color: black;
 }
 
-#correct {
+.correct {
   background-color: green;
 }
 
-#incorrect {
+.incorrect {
   background-color: gray;
 }
 
-#almost-correct {
+.almost-correct {
   background-color: yellow;
 }
 

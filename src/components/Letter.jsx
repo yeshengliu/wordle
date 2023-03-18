@@ -6,7 +6,7 @@ function Letter(props) {
   const currState = board[row][col].state;
 
   return (
-    <div className="letter" id={currState}>
+    <div className={`letter ${currState}`}>
       {currLetter}
     </div>
   );
