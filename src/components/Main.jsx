@@ -6,7 +6,7 @@ import { sixLetterWords, sevenLetterWords } from "../resources/WordSet";
 import { AppContext } from "../App";
 
 function Main(props) {
-  const { targetWord, setMessage, setTargetWord, setPlayerWon } = useContext(AppContext);
+  const { setMessage, setTargetWord, setPlayerWon } = useContext(AppContext);
   const { size, maxAttempts } = props;
 
   // Create a board of size x size containing empty strings
@@ -42,11 +42,7 @@ function Main(props) {
   }, []);
 
   return (
-    <div>
-      <nav>
-        <h1>Wordle</h1>
-        <h2>{targetWord}</h2>
-      </nav>
+    <div className="main">
       <Message />
       <Board board={board} size={size} maxAttempts={maxAttempts} />
       <WordInput

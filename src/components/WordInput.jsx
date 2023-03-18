@@ -105,7 +105,7 @@ function WordInput(props) {
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleClick}>Guess</button>
-      <button onClick={handleReset}>Reset the game</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }
