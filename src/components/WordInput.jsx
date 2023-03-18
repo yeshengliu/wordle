@@ -58,7 +58,7 @@ function WordInput(props) {
     setBoard(newBoard);
 
     if (inputValue === targetWord) {
-      setMessage(`Congratulations! You won!`);
+      setMessage(`Congratulations! Would you like to try again?`);
     } else if (currAttempt === maxAttempts) {
       setMessage(`Game Over! The word was "${targetWord}"`);
     } else {
@@ -72,6 +72,7 @@ function WordInput(props) {
     setCurrAttempt(currAttempt + 1);
   }
 
+  // get the state of each letter based on the input value
   function getLetterState(inputValue, targetWord) {
     let targetCopy = targetWord.slice();
     // initialize all colors to incorrect
@@ -103,7 +104,8 @@ function WordInput(props) {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleClick}>inputValue</button>
+      <button onClick={handleClick}>Guess</button>
+      <button>Reset the game</button>
     </div>
   );
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import { useContext } from "react";
-import { AppContext } from "../App";
 
 function Letter(props) {
   const { board, row, col } = props;

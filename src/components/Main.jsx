@@ -36,6 +36,9 @@ function Main() {
 
   return (
     <div>
+      <nav>
+        <h1>Wordle</h1>
+      </nav>
       <Message />
       <Board board={board} size={size} maxAttempts={maxAttempts} />
       <WordInput
