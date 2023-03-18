@@ -7,7 +7,7 @@ export const AppContext = createContext();
 function App() {
   /* Global state */
   const [message, setMessage] = useState(``);
-  const targetWord = "RIGHTR";
+  const [targetWord, setTargetWord] = useState(``);
 
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
           message,
           setMessage,
           targetWord,
+          setTargetWord,
         }}
       >
         <Main />

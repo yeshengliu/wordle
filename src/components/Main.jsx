@@ -2,10 +2,11 @@ import React, { useState, useContext } from "react";
 import Message from "./Message";
 import Board from "./Board";
 import WordInput from "./WordInput";
+import { sixLetterWords, sevenLetterWords } from "../resources/WordSet";
 import { AppContext } from "../App";
 
 function Main() {
-  const { setMessage } = useContext(AppContext);
+  const { setMessage, setTargetWord } = useContext(AppContext);
 
   const size = 6;
   const maxAttempts = 6;
@@ -28,6 +29,12 @@ function Main() {
       `Please enter a ${size}-letter word. ${maxAttempts} attempts remaining.`
     );
     setBoard(emptyBoard);
+    // select a random word from the word set
+    if (size === 6) {
+      setTargetWord(sixLetterWords[Math.floor(Math.random() * sixLetterWords.length)]);
+    } else if (size === 7) {
+      setTargetWord(sevenLetterWords[Math.floor(Math.random() * sevenLetterWords.length)]);
+    }
   };
 
   React.useEffect(() => {
