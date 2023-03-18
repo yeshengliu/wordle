@@ -1,11 +1,12 @@
 import "./App.css";
 import { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 import NavBar from "./components/NavBar";
 import Welcome from "./pages/Welcome";
 import NormalPage from "./pages/NormalPage";
 import HardPage from "./pages/HardPage";
+import GameRule from "./pages/GameRule";
 
 export const AppContext = createContext();
 
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/" element={<Welcome />} />
             <Route exact path="/game/normal" element={<NormalPage />} />
             <Route exact path="/game/hard" element={<HardPage />} />
+            <Route exact path="/game/rule" element={<GameRule />} />
           </Routes>
         </AppContext.Provider>
       </div>
