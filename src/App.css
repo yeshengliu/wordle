@@ -55,6 +55,23 @@
   place-items: center;
 }
 
+.welcome {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+}
+
+.welcome div {
+  margin: 1rem;
+}
+
+.welcome div * {
+  margin: 0.5rem; 
+}
+
 @media screen and (max-width: 600px) {
   .board {
     margin: 2rem;
