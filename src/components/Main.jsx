@@ -5,11 +5,10 @@ import WordInput from "./WordInput";
 import { sixLetterWords, sevenLetterWords } from "../resources/WordSet";
 import { AppContext } from "../App";
 
-function Main() {
+function Main(props) {
   const { targetWord, setMessage, setTargetWord, setPlayerWon } = useContext(AppContext);
+  const { size, maxAttempts } = props;
 
-  const size = 6;
-  const maxAttempts = 6;
   // Create a board of size x size containing empty strings
   const emptyBoard = [];
   for (let i = 0; i < maxAttempts; i++) {
