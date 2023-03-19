@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../App";
+import Button from "react-bootstrap/Button";
 
 function WordInput(props) {
   const { setMessage, targetWord, playerWon, setPlayerWon } = useContext(AppContext);
@@ -97,15 +98,15 @@ function WordInput(props) {
   }
 
   return (
-    <div className="worldInput">
+    <div className="wordInput">
       <input
         type="text"
         value={inputValue}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleClick}>Guess</button>
-      <button onClick={handleReset}>Reset the game</button>
+      <Button variant="secondary" onClick={handleClick}>Guess</Button>
+      <Button variant="warning" onClick={handleReset}>Reset</Button>
     </div>
   );
 }
