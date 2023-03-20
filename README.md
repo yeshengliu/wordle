@@ -1,17 +1,41 @@
-Names of team members: Yuxuan Lin, Yesheng Liu
+# Wordle Game
 
-Writeup (written together)
+This is a wordle game built with React
 
-1. What were some challenges you faced while making this app?
-   We spent much time on planning how to structure and initialize the app like what components to have, and what functions to add on each component.
-   One of the biggest challenge while making this app is the function for color change. We came up with several ideas of how and where we could write this function. It took some time for us to reach the final version of color change function.
+https://yesheng-liu-yuxuan-lin-project2.onrender.com/
 
-2. Given more time, what additional features, functional or design changes would you make?
-   If given more time, we would consider add valid word check function and more interactive user interface such as animatied game rule. Additionally, we could collect the player's data to analyze the user behavior for app improvement.
+There are two levels of difficulty
+1. Normal - 6 letter words with 6 max attempts
+2. Hard - 7 letter words with 5 max attempts
 
-3. What assumptions did you make while working on this assignment?
-   a. We assume that the user is comfortable with the level of difficulty and complexity of the game, and that the user will not be discouraged by failing to guess the word on their first attempt.
-   b. We assume that the user has basic knowledge of the English language and can understand the instructions and rules of the game.
+Also, this app is optimized for mobile view
 
-4. How long did this assignment take to complete?
-   Together we took a week (about 35hrs) to complete this app.
+## Implementation
+
+* React - create reusable app components
+* React Hooks - control the state of variables across web pages
+* React Router - navigation across web pages
+* Bootstrap - ensure the consistent design of the whole web app
+* Vite - simplify the build/test process
+* render - provide easy deployment of React app
+
+## Deployment
+
+This project is deployed on render.com, with following customized settings
+
+```
+environment: node
+build command: npm run build
+publish directory: dist
+```
+
+### More configurations
+![render-config](./screenshots/render-config.png)
+*Rewrite Rules*
+
+## Screenshots
+![demo-gameplay](./screenshots/demo-gameplay.png)
+*gameplay*
+
+## Collaborators
+Yesheng Liu, Yuxuan Lin
