@@ -1,8 +1,6 @@
 # Wordle Game
 
-This is a wordle game built with React
-
-https://yesheng-liu-yuxuan-lin-project2.onrender.com/
+This is a wordle game built with React, *[Link to App](https://yesheng-liu-yuxuan-lin-project2.onrender.com/)*
 
 There are two levels of difficulty
 1. Normal - 6 letter words with 6 max attempts
@@ -35,7 +33,7 @@ publish directory: dist
 
 ## Screenshots
 ![demo-gameplay](./screenshots/demo-gameplay.png)
-*gameplay*
+*Gameplay in Normal Mode*
 
 ## Collaborators
 Yesheng Liu, Yuxuan Lin
